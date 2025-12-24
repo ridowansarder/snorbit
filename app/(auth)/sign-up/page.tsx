@@ -36,69 +36,67 @@ const SignUpPage = () => {
       setError(res.error.message || "Something went wrong.");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push("/dashboard");
       setLoading(false);
     }
   }
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle>Create an account</CardTitle>
-          <CardDescription>
-            Enter your information below to create your account
-          </CardDescription>
-        </CardHeader>
-        {error && <p className="text-red-500 text-center">{error}</p>}
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2 ">
-              <Label htmlFor="name">Enter Your Name</Label>
-              <Input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Ridwan Sarder"
-                required
-                disabled={loading}
-              />
-            </div>
-            <div className="space-y-2 ">
-              <Label htmlFor="email">Enter Your Email</Label>
-              <Input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="ridwanzuraiz@gmail.com"
-                required
-                disabled={loading}
-              />
-            </div>
-            <div className="space-y-2 ">
-              <Label htmlFor="password">Enter Your Password</Label>
-              <Input
-                id="password"
-                type="password"
-                name="password"
-                required
-                minLength={8}
-                disabled={loading}
-                placeholder="********"
-              />
-            </div>
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Creating account..." : "Sign up"}
-            </Button>
-            <p className="text-center text-sm text-gray-600">
-              Already have an account?{" "}
-              <Link href="/sign-in" className="text-blue-600 hover:underline">
-                Log in
-              </Link>
-            </p>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+    <Card className="w-full max-w-sm">
+      <CardHeader>
+        <CardTitle className="text-xl">Create an account</CardTitle>
+        <CardDescription>
+          Enter your information below to create your account
+        </CardDescription>
+      </CardHeader>
+      {error && <p className="text-red-500 text-center">{error}</p>}
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2 ">
+            <Label htmlFor="name">Enter Your Name</Label>
+            <Input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Ridwan Sarder"
+              required
+              disabled={loading}
+            />
+          </div>
+          <div className="space-y-2 ">
+            <Label htmlFor="email">Enter Your Email</Label>
+            <Input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="ridwanzuraiz@gmail.com"
+              required
+              disabled={loading}
+            />
+          </div>
+          <div className="space-y-2 ">
+            <Label htmlFor="password">Enter Your Password</Label>
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              required
+              minLength={8}
+              disabled={loading}
+              placeholder="********"
+            />
+          </div>
+          <Button type="submit" className="w-full" disabled={loading}>
+            {loading ? "Creating account..." : "Sign up"}
+          </Button>
+          <p className="text-center text-sm text-primary">
+            Already have an account?{" "}
+            <Link href="/sign-in" className="text-primary underline">
+              Log in
+            </Link>
+          </p>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 

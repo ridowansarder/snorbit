@@ -35,15 +35,15 @@ const SignInPage = () => {
       setError(res.error.message || "Something went wrong.");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push("/dashboard");
       setLoading(false);
     }
   }
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+    
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Welcome Back</CardTitle>
+          <CardTitle className="text-xl">Welcome Back</CardTitle>
           <CardDescription>
             Enter your information below to login to your account
           </CardDescription>
@@ -77,7 +77,7 @@ const SignInPage = () => {
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Logging in..." : "Login"}
             </Button>
-            <p className="text-center">
+            <p className="text-center text-sm text-primary">
               Don&apos;t have an account?{" "}
               <Link href="/sign-up" className="text-primary underline">
                 Sign Up
@@ -86,7 +86,7 @@ const SignInPage = () => {
           </form>
         </CardContent>
       </Card>
-    </div>
+
   );
 };
 
