@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const SignInPage = () => {
   const router = useRouter();
@@ -74,8 +75,14 @@ const SignInPage = () => {
               />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Creating account..." : "Sign up"}
+              {loading ? "Logging in..." : "Login"}
             </Button>
+            <p className="text-center">
+              Don&apos;t have an account?{" "}
+              <Link href="/sign-up" className="text-primary underline">
+                Sign Up
+              </Link>
+            </p>
           </form>
         </CardContent>
       </Card>
