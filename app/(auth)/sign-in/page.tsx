@@ -35,7 +35,7 @@ const SignInPage = () => {
       setError(res.error.message || "Something went wrong.");
       setLoading(false);
     } else {
-      router.push("/dashboard");
+      router.push("/");
       setLoading(false);
     }
   }
