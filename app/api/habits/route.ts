@@ -1,6 +1,8 @@
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { HabitValidation } from "@/lib/validations/habit";
 import { headers } from "next/headers";
+import { z } from "zod";
 
 // Getting all habits
 export async function GET() {
@@ -28,7 +30,7 @@ export async function GET() {
 }
 
 // Creating a new habit
-export async function POST(requset: Request) {
+export async function POST(request: Request) {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -39,13 +41,18 @@ export async function POST(requset: Request) {
 
   const userId = session.user.id;
 
-  const body = await requset.json();
+  const body = await request.json();
 
-  const { name, frequency, daysOfWeek, reason, minGoal } = body;
+  const parsedBody = HabitValidation.safeParse(body);
 
-  if (!name || !frequency) {
-    return Response.json({ error: "Missing required fields" }, { status: 400 });
+  if (!parsedBody.success) {
+    return Response.json(
+      { error: "Validation failed", details: z.flattenError(parsedBody.error) },
+      { status: 400 }
+    );
   }
+
+  const { name, frequency, daysOfWeek = [], reason, minGoal } = parsedBody.data;
 
   const habit = await prisma.habit.create({
     data: {
@@ -58,5 +65,5 @@ export async function POST(requset: Request) {
     },
   });
 
-  return Response.json(habit);
+  return Response.json(habit, { status: 201 });
 }
