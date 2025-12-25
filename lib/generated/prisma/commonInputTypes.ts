@@ -148,6 +148,23 @@ export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
+export type EnumHabitFrequencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.HabitFrequency | Prisma.EnumHabitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHabitFrequencyFilter<$PrismaModel> | $Enums.HabitFrequency
+}
+
+export type EnumHabitFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HabitFrequency | Prisma.EnumHabitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHabitFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.HabitFrequency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHabitFrequencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHabitFrequencyFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -293,6 +310,23 @@ export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumHabitFrequencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.HabitFrequency | Prisma.EnumHabitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHabitFrequencyFilter<$PrismaModel> | $Enums.HabitFrequency
+}
+
+export type NestedEnumHabitFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HabitFrequency | Prisma.EnumHabitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HabitFrequency[] | Prisma.ListEnumHabitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHabitFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.HabitFrequency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHabitFrequencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHabitFrequencyFilter<$PrismaModel>
 }
 
 

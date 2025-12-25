@@ -1,19 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
-import { SignOutButton } from "./SignOutButton"
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { SignOutButton } from "./SignOutButton";
 
 type NavLink = {
-  href: string
-  label: string
-}
+  href: string;
+  label: string;
+};
 
-export function MobileNav({ navLinks, userName }: { navLinks: NavLink[], userName: string }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
+export function MobileNav({
+  navLinks,
+  userName,
+}: {
+  navLinks: NavLink[];
+  userName: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -30,7 +36,7 @@ export function MobileNav({ navLinks, userName }: { navLinks: NavLink[], userNam
       {isOpen && (
         <>
           {/* Backdrop */}
-          <div 
+          <div
             className="fixed inset-0 bg-black/20 z-40"
             onClick={() => setIsOpen(false)}
           />
@@ -52,10 +58,10 @@ export function MobileNav({ navLinks, userName }: { navLinks: NavLink[], userNam
                   {link.label}
                 </Link>
               ))}
-              
+
               {/* User Info */}
               <div className="pt-4 mt-4 border-t space-y-3">
-                <p className="px-4 text-sm text-muted-foreground">
+                <p className="px-4 text-sm font-medium text-foreground">
                   {userName}
                 </p>
                 <SignOutButton />
@@ -65,5 +71,5 @@ export function MobileNav({ navLinks, userName }: { navLinks: NavLink[], userNam
         </>
       )}
     </>
-  )
+  );
 }

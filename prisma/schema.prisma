@@ -19,6 +19,7 @@ model User {
   image         String?
   sessions      Session[]
   accounts      Account[]
+  habits    Habit[]
 
   @@map("user")
 }
@@ -69,4 +70,28 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model Habit {
+  id         String   @id @default(uuid())
+  name       String
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  reason     String?
+  frequency  HabitFrequency
+  daysOfWeek Int[]
+  minGoal    String?
+
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId])
+  @@map("habit")
+}
+
+enum HabitFrequency {
+  DAILY
+  CUSTOM
 }

@@ -42,7 +42,7 @@ const DashboardNav = async () => {
            
             {/* Desktop Right Side */}
             <div className="hidden md:flex items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
+              <span className="text-sm font-medium text-foreground">
                 {session?.user.name}
               </span>
               <SignOutButton />
